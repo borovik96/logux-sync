@@ -41,6 +41,6 @@ it('has BaseSync class', function () {
   expect(sync.BaseSync).toBe(BaseSync)
 })
 
-it('has BaseSync class', function () {
+it('has TestPair class', function () {
   expect(sync.TestPair).toBe(TestPair)
 })
