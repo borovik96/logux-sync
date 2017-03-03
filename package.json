@@ -17,12 +17,13 @@
   "devDependencies": {
     "docdash": "^0.4.0",
     "eslint": "^3.16.1",
-    "eslint-config-logux": "^7.0.0",
-    "eslint-config-standard": "^6.2.1",
+    "eslint-config-logux": "^8.0.0",
+    "eslint-config-standard": "^7.0.0",
     "eslint-plugin-es5": "^1.0.1",
     "eslint-plugin-jest": "^19.0.1",
-    "eslint-plugin-promise": "^3.4.2",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-node": "^4.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "jest": "^19.0.2",
     "jsdoc": "^3.4.3",
     "lint-staged": "^3.3.1",
@@ -30,12 +31,11 @@
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.1",
     "ws": "^2.2.0",
-    "yaspeller": "^3.0.0"
+    "yaspeller-ci": "^0.1.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "spellcheck": "yarn run cleandocs && yaspeller *.md docs/*.html",
-    "cleandocs": "yarn run docs && rimraf docs/*.js.html",
+    "spellcheck": "yarn run docs && yaspeller-ci *.md docs/*.html",
     "clean": "rimraf docs/ coverage/",
     "lint": "eslint *.js test/**/*.js messages/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
@@ -48,11 +48,14 @@
       }
     }
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "eslintConfig": {
     "extends": "eslint-config-logux/browser"
   },
   "lint-staged": {
-    "*.md": "yaspeller",
+    "*.md": "yaspeller-ci",
     "*.js": "eslint"
   },
   "pre-commit": [
