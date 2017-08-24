@@ -238,7 +238,7 @@ to it changes using the `state` event:
 
 ```js
 client.on('state', () => {
-  if (client.state === 'wait' || client.state === 'sending') {
+  if (client.state === 'disconnected' || client.state === 'sending') {
     doNotCloseBrowser()
   } else {
     allowToCloseBrowser()
